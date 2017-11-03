@@ -5,7 +5,7 @@ const moment = require('moment-timezone');
 const config = require('./config');
 
 const app = express();
-app.use(bodyParser.json({ limit: '28mb' }));
+app.use(bodyParser.json({ limit: '5mb' }));
 
 const baseUrl = config.baseUrl;
 const port = process.env.PORT || 7777;
