@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const FitbitApiClient = require('fitbit-node');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const config = require('./config');
 
 const app = express();
@@ -52,8 +52,8 @@ app.get('/fb', (req, res) => {
 app.get('/callback', (req, res) => {
   client.getAccessToken(req.query.code, config.fitbitCallBackUrl)
     .then((result) => {
-      const date = moment().format('YYYY-MM-DD');
-      const time = moment().format('HH:mm:ss');
+      const date = moment().tz("America/New_York").format('YYYY-MM-DD');
+      const time = moment().tz("America/New_York").format('HH:mm:ss');
 
       if (option === 'weight') {
         client.post(`/body/log/weight.json?weight=${weight}&date=${date}&time=${time}`, result.access_token, null, null, { 'Accept-Language': 'en_US' })
