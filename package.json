@@ -1,0 +1,19 @@
+{
+  "name": "fitbit-weight-water",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "pm2 start index.js --name=fitbit-weight-water --watch",
+    "stop-dev": "pm2 delete fitbit-weight-water",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "peteplays",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "fitbit-node": "^2.0.5",
+    "moment": "^2.19.1"
+  }
+}
