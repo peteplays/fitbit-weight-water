@@ -1,9 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const FitbitApiClient = require('fitbit-node');
 const moment = require('moment');
 const config = require('./config');
 
 const app = express();
+app.use(bodyParser.json({ limit: '28mb' }));
+
 const baseUrl = config.baseUrl;
 const port = process.env.PORT || 7777;
 
@@ -19,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  res.send(`${req.body.result.parameters.bodyFat[0]} ${req.body.result.parameters.bodyFat[0]}`);
+  res.send(`${req.body.result.parameters.weight[0]} ${req.body.result.parameters.bodyFat[0]}`);
   console.log(req.body);
   console.log(req.body.result.parameters.weight[0]);
   console.log(req.body.result.parameters.bodyFat[0]);
