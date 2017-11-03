@@ -43,16 +43,16 @@ app.post('/', (req, res) => {
 
 app.get('/fb', (req, res) => {
   console.log('FB!!!!!!!!!', config.fitbitCallBackUrl, req.query.opt, req.query.weight, req.query.fat);
-  // if ((req.query.opt === 'weight' && req.query.weight && req.query.fat) || (req.query.opt === 'water' && req.query.amount)) {
-  //   option = req.query.opt;
-  // } else {
-  //   res.send('Missing required field');
-  // }
+  if ((req.query.opt === 'weight' && req.query.weight && req.query.fat) || (req.query.opt === 'water' && req.query.amount)) {
+    option = req.query.opt;
+  } else {
+    res.send('Missing required field');
+  }
 
-  // weight = req.query.weight || null;
-  // fat = req.query.fat || null;
-  // waterAmount = req.query.amount || null;
-  // waterUnit = req.query.unit || null;
+  weight = req.query.weight || null;
+  fat = req.query.fat || null;
+  waterAmount = req.query.amount || null;
+  waterUnit = req.query.unit || null;
 
   res.redirect(client.getAuthorizeUrl('weight nutrition', config.fitbitCallBackUrl));
 });
