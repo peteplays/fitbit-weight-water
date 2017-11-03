@@ -26,7 +26,8 @@ app.post('/', (req, res) => {
   weight = req.body.result.parameters.weight[0];
   fat = req.body.result.parameters.bodyFat[0];
 
-  res.redirect(`${baseUrl}fb?opt=weight&weight=${weight}&fat=${fat}`);
+  // res.redirect(`${baseUrl}fb?opt=weight&weight=${weight}&fat=${fat}`);
+  res.redirect(client.getAuthorizeUrl('weight nutrition', config.fitbitCallBackUrl));
 });
 
 app.get('/fb', (req, res) => {
