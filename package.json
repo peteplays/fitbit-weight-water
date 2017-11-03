@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "start-dev": "pm2 start index.js --name=fitbit-weight-water --watch",
-    "stop-dev": "pm2 delete fitbit-weight-water",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "stop-dev": "pm2 delete fitbit-weight-water"
   },
   "author": "peteplays",
   "license": "ISC",
