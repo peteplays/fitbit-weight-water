@@ -12,7 +12,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const baseUrl = config.baseUrl;
 const port = process.env.PORT || 7777;
 
 const client = new FitbitApiClient(config.fitbitClientId, config.fitbitClientSecret);
@@ -24,21 +23,6 @@ let waterUnit;
 
 app.get('/', (req, res) => {
   res.send('Hello World');
-});
-
-app.post('/', (req, res) => {
-  console.log(req.body);
-  console.log(req.body.result.parameters.weight[0]);
-  console.log(req.body.result.parameters.bodyFat[0]);
-  weight = req.body.result.parameters.weight[0];
-  fat = req.body.result.parameters.bodyFat[0];
-  // console.log(res.getHeaderNames());
-  // res.removeHeader('x-powered-by');
-  // console.log(res.getHeaderNames());
-  // res.end();
-  // res.redirect(`${baseUrl}fb?opt=weight&weight=${weight}&fat=${fat}`);
-  res.redirect(client.getAuthorizeUrl('weight nutrition', config.fitbitCallBackUrl));
-  // res.send(`${req.body.result.parameters.weight[0]} ${req.body.result.parameters.bodyFat[0]}`);
 });
 
 app.get('/fb', (req, res) => {
@@ -59,7 +43,7 @@ app.get('/fb', (req, res) => {
 
 
 app.get('/callback', (req, res) => {
-  console.log('CB!!!!!!');
+  console.log('CB!!!!!!', weight, fat);
   client.getAccessToken(req.query.code, config.fitbitCallBackUrl)
     .then((result) => {
       const date = moment().tz("America/New_York").format('YYYY-MM-DD');
