@@ -5,6 +5,10 @@ This project will get a fitbit access token and let the user add `weight and bod
 The user must set up a fitbit developer account and have a `CLIENT_ID` and `CLIENT_SECRET`.
 
 ## Local Development ##
+running `node index.js` will serve app
+
+or
+
 - `npm i pm2 -g` installs pm2 as a global package
 
 - `npm run start-dev` will start pm2, the app, and watch for changes.  The default port in the project is port `7777`.
@@ -19,12 +23,14 @@ The user must setup create a `config.js` file containing the following.
 - `fitbitClientId`
 - `fitbitClientSecret`
 
-There is a `config.example.js` file that can be used once updated and file name changed.
+There is a `config.js` file that can be used once updated and file name changed.
 
 ## Usage ##
+### _View profile and get acces token_ ###
+call `http://localhost:7777/fb`
+
 ### _Add weight and body fat percent_ ###
-call `http://localhost:7777/fb?opt=weight&weight=165&fat=11.7`
-- `opt: weight` will call the weight and body fat endpoints
+call `http://localhost:7777/weight?weight=165&fat=11.7`
 - `weight: [weight]` weight to enter
 - `fat: [fat]` fat percent to enter
 
@@ -34,8 +40,7 @@ To change the units change `'Accept-Language': 'en_US'` (see fitbit dev docs for
 
 ### _Add water_ ###
 
-call `http://localhost:7777/fb?opt=water&amount=1&unit=cup`
-- `opt: water` will call the water endpoint
+call `http://localhost:7777/water?amount=1&unit=cup`
 - `amount: [amount]` amount of water
 - `unit: [unit]` unit of water (optional)
 
