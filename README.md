@@ -29,6 +29,8 @@ There is a `config.js` file that can be used once updated and file name changed.
 ### _View profile and get acces token_ ###
 call `http://localhost:7777/fb`
 
+this will write the a _token_ to `token.json`
+
 ### _Add weight and body fat percent_ ###
 call `http://localhost:7777/weight?weight=165&fat=11.7`
 - `weight: [weight]` weight to enter
