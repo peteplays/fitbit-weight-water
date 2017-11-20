@@ -26,7 +26,7 @@ The user must setup create a `config.js` file containing the following.
 There is a `config.js` file that can be used once updated and file name changed.
 
 ## Usage ##
-### _View profile and get acces token_ ###
+### _View profile and get access token_ ###
 call `http://localhost:7777/fb`
 
 this will write the a _token_ to `token.json`
