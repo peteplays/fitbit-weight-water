@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "start-dev": "pm2 start index.js --name=fitbit-weight-water --watch",
+    "restart": "pm2 delete fitbit-weight-water && pm2 start index.js --name=fitbit-weight-water && pm2 log",
     "stop-dev": "pm2 delete fitbit-weight-water"
   },
   "author": "peteplays",
@@ -15,5 +16,11 @@
     "express": "^4.16.2",
     "fitbit-node": "^2.0.5",
     "moment-timezone": "^0.5.14"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1"
   }
 }
